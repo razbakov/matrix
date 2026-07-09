@@ -61,3 +61,12 @@ without a citation — see `rules/agent-operations.md`.
 - retrospective → Read, Grep, Glob, Bash (read-only log/git queries)
 - metrics-history → Bash (analytics reads), WebFetch
 - memory → Read, Grep, Write (consolidation only)
+
+## Cadence
+
+- **When** — daily at end of day (the retrospective), and weekly (the weekly review).
+- **What** — the day's/week's sessions, closures, metrics, plan-vs-actual.
+- **Threshold** — surface only a lesson worth carrying forward or a drift worth flagging;
+  a quiet day logs "nothing to surface" and stays silent.
+- **Output** — submits its slot to Matrix's daily digest; hands forward-looking lessons up
+  to Morpheus out-of-cycle when strategy is affected.

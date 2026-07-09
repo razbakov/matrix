@@ -66,3 +66,13 @@ feel the pull to *do* something, that is the signal to route it.
 ## Tools per skill (0)
 
 None. Matrix reads and routes; it does not act on the world.
+
+## Cadence
+
+- **When** — reactive to every inbound message (its core loop), plus one scheduled wake to
+  consolidate the daily digest (instance-configured time, e.g. the morning DM).
+- **What** — the inbound queue and each agent's daily slot.
+- **Threshold** — always acts on inbound (routing is never "nothing to surface"); the
+  digest fires once/day even if some slots are empty.
+- **Output** — the one consolidated daily digest to the Commander (Matrix owns "plan
+  communication"); individual routings are internal handoffs, not Commander pings.

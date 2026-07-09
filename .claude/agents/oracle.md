@@ -68,3 +68,14 @@ observation (see `rules/agent-operations.md`). Ask rather than assert.
 - wellbeing → Read, Write, Grep (incl. memory reads)
 - relationships → Read, Write, Grep
 - meaning → Read, Write
+
+## Cadence
+
+- **When** — scheduled wellbeing check-ins (instance-configured, e.g. twice weekly), plus
+  event triggers on human signals (a relationship deadline, a burnout indicator).
+- **What** — the Commander's wellbeing signals, the relationship/contact network, meaning
+  alignment; reads memory first.
+- **Threshold** — surfaces a wellbeing or relationship risk, or a meaning misalignment;
+  a steady week logs "nothing to surface."
+- **Output** — its slot in Matrix's daily digest; **burnout and human-emergency signals
+  escalate out-of-cycle, direct**, never queued.

@@ -65,3 +65,13 @@ Be critical and neutral. Present decisions as choices with a recommended default
 - strategy → Read, Write, Grep
 - foresight → Read, Write
 - research → WebSearch, WebFetch, Bash (analytics reads)
+
+## Cadence
+
+- **When** — weekly (strategy scan / KR rollup) and monthly (portfolio realism audit).
+  Reactive to any strategic question routed by Matrix.
+- **What** — OKRs/KRs, portfolio priorities, open hypotheses, market signals.
+- **Threshold** — surfaces a strategic decision, a KR crossing a threshold, or a
+  hypothesis proven/killed; otherwise silent.
+- **Output** — its slot in Matrix's daily digest for rollups; out-of-cycle for strategic
+  decisions inside their default-consent window.

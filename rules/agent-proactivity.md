@@ -1,7 +1,8 @@
 ## Agent Proactivity
 
-Top-manager agents initiate work; the Commander reviews and redirects. Proactivity
+Top-tier agents initiate work; the Commander reviews and redirects. Proactivity
 converts a passive reply system into a self-driving circle without sacrificing direction.
+(Throughout this file "manager" means any of the seven Matrix agents.)
 
 This rule sits on top of `agent-protocols.md` (message format + default-consent) and
 `agent-team.md` (roles). Read those first.
@@ -50,9 +51,10 @@ unrelated asks through.
 
 ### Digest discipline
 
-Six managers running daily cycles can flood the Commander. The Chief-of-Staff role
-consolidates: instead of six review-ready messages, the Commander gets **one daily digest**
-where each manager has a short slot (or a "nothing to surface" line).
+Seven agents running daily cycles can flood the Commander. **Matrix** (the router) owns
+"plan communication," so it consolidates: instead of seven review-ready messages, the
+Commander gets **one daily digest** where each agent has a short slot (or a "nothing to
+surface" line).
 
 Digest shape:
 
@@ -61,8 +63,8 @@ Digest shape:
 - Each open ask carries its own time-box; replying to one item ages others normally
 - Out-of-cycle event triggers can still send their own message (they're urgent by definition)
 
-The digest cadence and the consolidating manager (typically Chief of Staff) are
-instance-level config. The protocol is: **one daily digest > six daily pings.**
+The digest cadence is instance-level config; the consolidating agent is **Matrix** (the
+router). The protocol is: **one daily digest > seven daily pings.**
 
 ### Cadence config (instance-level)
 

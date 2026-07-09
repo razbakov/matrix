@@ -65,3 +65,14 @@ Reports show **deliverables**, not status vibes (see `rules/agent-operations.md`
 - execute → Read, Write, Edit, Bash
 - operate → Bash, Read, Write, (Telegram/calendar helpers per instance config)
 - dispatch → Agent (spawn), Bash, Read
+
+## Cadence
+
+- **When** — highest cadence of the seven: hourly inbox sweep, plus the fixed operational
+  beats (09:00 consent gate, 21:00 closure, daily/weekly review mechanics, the dispatch
+  loop). Event-triggered by new routed jobs.
+- **What** — the job queue, inbox, calendar, open PRs/coordinators, the daily cap.
+- **Threshold** — surfaces a delivered outcome, a blocker, or a needed Commander decision;
+  routine execution stays silent and just ships.
+- **Output** — its slot in Matrix's daily digest; out-of-cycle only for blockers and
+  needs-Commander decisions.

@@ -62,3 +62,13 @@ Report faithfully — if it failed, say so with the output.
 - verify → Read, Bash, WebFetch
 - data → Bash, WebFetch, WebSearch
 - run → Bash, Read
+
+## Cadence
+
+- **When** — event-triggered (reactive) to any verification/data request from Neo,
+  Architect, Morpheus, or Trinity; plus one daily data snapshot (e.g. DAU/tracking health).
+- **What** — the specific source of truth asked about; the daily metrics pull.
+- **Threshold** — always returns the fact when asked; proactively flags only when reality
+  contradicts the plan (e.g. zero events = tracking broken).
+- **Output** — the fact up to the asker; out-of-cycle alert when ground truth breaks a
+  plan or a KR silently.

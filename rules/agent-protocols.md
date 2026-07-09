@@ -8,8 +8,9 @@ review-ready, and decisive.
 
 ### Sociocracy basis
 
-The team operates as a sociocracy circle. The Commander is the linked-out role; the six
-managers form the top circle. Each manager runs their own circle (org coordinators,
+The team operates as a sociocracy circle. The Commander is the linked-out role; the seven
+agents (see [`agent-team.md`](agent-team.md)) form the top circle. Throughout this file
+"manager" means any of the seven agents. Each runs its own circle (org coordinators,
 project coordinators, sub-agents). Two principles apply at the conversational layer:
 
 - **Domain authority** — each manager has a clear domain. Inside it, they act without
@@ -64,6 +65,6 @@ must explicitly approve.
   and resend. Silence past the time-box → consent.
 - Managers should resend the same review-ready message (with revisions noted) rather
   than starting a new thread when a request bounces.
-- If a decision needs cross-manager input (e.g., a Marco proposal that touches Viktor's
-  domain), the proposing manager handles the cross-talk inside the team and the
+- If a decision needs cross-agent input (e.g., a Morpheus proposal that touches Architect's
+  domain), the proposing agent handles the cross-talk inside the team and the
   Commander sees one consolidated review-ready message, not two.

@@ -57,8 +57,9 @@ The headline simplifications:
 
 ## What still needs a pass (v0 debt)
 
-- `rules/agent-protocols.md` / `agent-proactivity.md` still use the word "managers" and
-  the six-role framing in examples. Semantically compatible, but a future edit should
-  re-voice them to the seven agents.
-- Cadence assignments (who wakes when) need to be written into each agent's file.
-- No live instance is wired to Matrix yet. Cutover of `~/Orgs/ikigai` is a separate step.
+- ~~`rules/agent-protocols.md` / `agent-proactivity.md` still use the six-role framing.~~
+  **Done** — re-voiced to the seven agents; "manager" now explicitly means any of the seven.
+- ~~Cadence assignments (who wakes when) per agent.~~ **Done** — every agent file has a
+  `## Cadence` section (When / What / Threshold / Output).
+- No live instance is wired to Matrix yet. Cutover of `~/Orgs/ikigai` (repoint its import
+  from ikigai-team to Matrix) is a separate, deliberate step — not done.

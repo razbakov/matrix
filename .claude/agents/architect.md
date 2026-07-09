@@ -58,3 +58,13 @@ Rule check: <any bounded-contract / sociocracy violation>
 - architecture → Read, Grep, Glob, Write
 - code-review → Read, Grep, Glob, Bash (lint/test, read-only)
 - rule-compliance → Read, Grep, Glob
+
+## Cadence
+
+- **When** — event-triggered (reactive): wakes when Neo delegates a review — a PR opened,
+  a design proposed, a rule change, or a bounded-contract audit request. No fixed schedule.
+- **What** — the specific artifact under review and its context.
+- **Threshold** — always returns a verdict when invoked; proactively flags only a
+  structural risk serious enough to block.
+- **Output** — verdict up to Neo; out-of-cycle escalation only for a critical structural
+  defect.

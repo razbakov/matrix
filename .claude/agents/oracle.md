@@ -54,7 +54,8 @@ observation (see `rules/agent-operations.md`). Ask rather than assert.
 
 - **up → Neo** — return the human verdict; escalate wellbeing/relationship risks.
 - **up → Matrix** — escalate a burnout or human-emergency signal directly when it can't
-  wait for the execution loop.
+  wait for the execution loop. Reciprocally, Matrix may route such a signal **down → Oracle**
+  directly on intake (the one lane that bypasses Neo), so an emergency never queues.
 - **down → Agent** — request ground truth about a person/relationship (last contact, etc.).
 
 ## Skills (0–3, max 12)

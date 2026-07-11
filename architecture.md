@@ -84,7 +84,9 @@ It reasons with **GROW + Owner** on every inbound message:
 
 Step 5 is the routing decision. Matrix hands off to the owning agent and never does
 the work itself. When ownership is unclear, it routes to **Neo** (present execution)
-to file and triage, never guessing a specialist.
+to file and triage, never guessing a specialist. **One exception to the tree:** a flagged
+human-emergency or burnout signal routes **directly to Oracle**, bypassing Neo — a person
+in distress must not wait behind the execution queue (see Known tensions below).
 
 ### Worked example (from the source)
 
@@ -99,6 +101,37 @@ Matrix runs GROW+Owner and decomposes:
 5. **Ownership** — CMO leads, others assist.
 
 Matrix schedules, estimates, prioritises, and routes each piece to its owner.
+
+## Known tensions (watch items)
+
+The carve is deliberate, but two frictions are known and accepted for v0. Both were
+surfaced by a router dry-run, not papered over.
+
+### 1. The emergency lane breaks the tree — on purpose
+
+The strict tree (Matrix → tense agents → leaf agents) means a wellbeing/human emergency
+arriving at the front door would otherwise take a hop through **Neo** to reach **Oracle** —
+adding latency to the one kind of request that must not wait. Resolved by a **single
+documented exception**: Matrix may route a flagged human-emergency or burnout signal
+**directly down to Oracle**, reciprocal to Oracle's existing `up → Matrix` emergency edge.
+This is the *only* lane that skips the tree; it is scoped to genuine emergencies so it
+can't erode into a general sideways-routing habit.
+
+### 2. Neo is the bottleneck
+
+Because functional work (content, code, community) is a **skill dispatched through** the
+cognitive agents rather than a seat of its own, and because Neo owns *all present
+execution*, Neo is by far the highest-traffic node — every "do this now," of every kind,
+lands on it. This is the intended shape (Neo is the spine), but it carries the classic
+risk: the busiest node slowly re-accretes into a **god-agent**, the exact failure a
+bounded-cognition design exists to prevent.
+
+**Mitigation (enforce from day one):** Neo must **delegate the judgment calls, not absorb
+them** — Architect (is it well-built?), Agent (is it true?), Oracle (does it serve the
+person?). Neo's own skills stay capped at `execute · operate · dispatch`. If Neo starts
+*deciding* structure, truth, or human trade-offs itself instead of delegating them, the
+carve has failed and the domain must be split (e.g. a second execution agent). Watch
+Neo's skill count and relation count against the bounded contract at every review.
 
 ## Relationship to ikigai-team
 

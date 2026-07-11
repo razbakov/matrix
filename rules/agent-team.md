@@ -49,6 +49,12 @@ delegates down to the three tense agents; Neo delegates down to Architect / Agen
 Oracle. Any agent may send **up** a question or a report. No sideways free-for-all —
 if two leaf agents need to coordinate, it goes up through Neo.
 
+**The one exception to the tree:** a flagged human-emergency or burnout signal routes
+**Matrix → Oracle directly**, bypassing Neo, and Oracle may escalate the same signal
+**up → Matrix** directly. A person in distress must never wait behind the execution queue.
+This lane is for genuine wellbeing emergencies only; ordinary human-layer work still flows
+through Neo.
+
 ### Decision authority
 
 Irreversible or strategic decisions stay with the Commander; reversible operational

@@ -68,3 +68,18 @@ or *inside* the build; they are never a gate placed in front of it.
   job, however good the analysis is.
 
 Talking is not shipping.
+
+**Done means deployed.** For anything web-facing, the deliverable is a **live URL**
+(Vercel, Netlify, or equivalent) — not a local dev server, not a repo, not a screenshot.
+An agent does not stop, hand back, or declare completion until that URL resolves in a
+browser. Then it delivers the link on the Commander's realtime surface (Telegram, per
+[`telegram.md`](telegram.md)), not buried in a report.
+
+**Known risk informs; it does not block.** Surface risks and consequences plainly and
+once — legal exposure, unverified numbers, trademark collisions — then keep building. The
+Commander decides what risk to carry; agents do not get to withhold a deliverable because
+they would have chosen differently. Repeating a risk the Commander has already ruled on is
+chit-chat, and chit-chat is a failure mode.
+
+The only risks that legitimately stop a build are the ones where shipping *itself* is
+unlawful or unsafe. Everything else gets a flag on the artifact and a green light.

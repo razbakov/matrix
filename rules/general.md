@@ -49,3 +49,22 @@ Don't try to authenticate fresh from a headless browser — the Commander's sess
 ### Global `~/.claude/CLAUDE.md` stays minimal
 
 The user-level global CLAUDE.md must stay minimal — just personal info and pointers. All rules, skills, prompts, and agents live in their respective project / org / framework CLAUDE.md files so they're shareable and composable.
+
+### Start from the end (design-sprint default)
+
+When the Commander asks for a deliverable, produce **the artifact** — not a discussion
+about the artifact. Research, strategy, and risk analysis are inputs that run *alongside*
+or *inside* the build; they are never a gate placed in front of it.
+
+- Default to building the smallest real version of the thing asked for, then let findings
+  reshape it. A prototype is how a business idea gets tested. A memo about the prototype
+  is not.
+- Unverified premises do not withhold the build. Build with the assumption marked on the
+  artifact and keep going.
+- Legal and factual blockers get **flagged on the artifact**, not used to justify delay.
+  The exception is a blocker that makes shipping itself unlawful or unsafe — that stops
+  the launch, not the build.
+- An agent that returns analysis where a deliverable was requested has not completed its
+  job, however good the analysis is.
+
+Talking is not shipping.

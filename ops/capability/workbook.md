@@ -78,6 +78,7 @@ A deploy claim with no fetched URL behind it is unverified. Report it as
 |---|---|---|---|---|---|
 | Estimate effort / size a piece of work | estimate, how long, story points, size this | `estimation` | Matrix (owns "estimate") | — | 1 |
 | Write a user story / acceptance criteria | user story, acceptance criteria, requirements, ticket | `user-story` | Neo | — | 1 |
+| File a new task into the Control Center | new task, track this, add to the board, file an issue | **No skill covers this** — follow `rules/tasks-control-center.md`: Linear issue with an S3 body (Tension · Driver · Requirement · Response Options) | Neo | — | gap |
 | Implement a given GitHub issue | implement issue, this issue URL, work on #N | `github-issue`; pick next → `github-next-issue` | Neo | — | 1 |
 | Plan a sprint | sprint planning, what should we build next, plan the iteration | `sprint-planning`; dispatch it → `run-sprint`; close it → `sprint-release` | Neo | — | — |
 | Dispatch a fire-and-forget agent | inbox, dispatch, spin up an agent | `inbox` | Neo | — | — |
@@ -143,7 +144,7 @@ was a separately discovered sub-task that owed its own capability check.
 |---|---|---|---|
 | 1 | Research the market and the problem | `research`, `competitor-alternatives` | Morpheus |
 | 2 | Validate the idea, choose the direction | `product-coach`, `launch-strategy` | Morpheus |
-| 3 | Size and sequence the work | `estimation`, `user-story`, `github-issue` | Matrix → Neo |
+| 3 | Size and sequence the work | `estimation`, `user-story`, then file to Linear per `rules/tasks-control-center.md` | Matrix → Neo |
 | 4 | Name and mark the brand | `logo-generator`, then `image-to-svg` to vectorise | Neo |
 | 5 | Build the site | `website` → `frontend-design` | Neo |
 | 6 | Review before shipping | `web-design-guidelines`, `code-review` | Architect |

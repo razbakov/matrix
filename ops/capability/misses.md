@@ -65,3 +65,16 @@ Row: n/a — terminology defect.
 Action: fixed — `rules/capability-retrieval.md` separates **faculty** (bounded) from
 **skill** (unbounded) and states explicitly that faculties are executed *through* skills,
 so skill usage never competes for the contract's budget.
+
+### 2026-09-08 · gap · filing a new task into the Control Center
+Agent: Architect  Work: seeding this workbook
+Detail: `rules/tasks-control-center.md` requires every task to be a Linear issue carrying
+an S3 body (Tension · Driver · Requirement · Response Options) and added to the Control
+Center. No skill automates this. The closest, `github-issue`, implements an *existing*
+GitHub issue and does not file new work — and since the framework moved task tracking from
+GitHub Issues to Linear, pointing new work at it would be actively wrong. Found while
+reconciling the workbook after the Linear migration landed mid-session.
+Row: "File a new task into the Control Center" — added, marked `gap`.
+Action: open — candidate for a new skill (S3 body template + Linear create + board add).
+Note the Linear MCP server requires authorisation before any such skill could run.
+

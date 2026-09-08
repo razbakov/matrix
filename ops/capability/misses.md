@@ -78,3 +78,28 @@ Row: "File a new task into the Control Center" — added, marked `gap`.
 Action: open — candidate for a new skill (S3 body template + Linear create + board add).
 Note the Linear MCP server requires authorisation before any such skill could run.
 
+
+### 2026-09-08 · gap · bulk-migrating Linear issues between projects
+Agent: Matrix  Work: collapsing the C1–C8 projects into one WeDance project (140 issues)
+Detail: No skill covers a bulk Linear mutation. Hand-rolled 140 `save_issue` calls.
+
+Two hard facts a future skill MUST encode:
+
+1. **`save_issue` silently drops writes under parallel load.** It returns a full
+   success-shaped response — complete issue body, no error field — while the issue keeps
+   its old value. 7 of ~76 writes failed this way (~20%) at ~26 parallel calls; 0 of 64
+   failed at ≤10. The only tell is that `updatedAt` is unchanged. Any skill that trusts
+   the response will silently under-migrate and report success.
+   **Mitigation: batch ≤10, then re-read via `list_issues` and retry until a full sweep is
+   clean.** Never report a count from write responses; report it from a verification read.
+2. **Subagents cannot reach this connector.** A dispatched `neo` resolved to the
+   unauthenticated deferred `linear` server and returned an auth-request instead of doing
+   the work. Linear operations must run in the main session — do not delegate them until
+   this is fixed.
+
+Also: `save_project` matches on the literal name, so an HTML-escaped `&amp;` fails to
+resolve. Pass project/issue **IDs**, not display names.
+
+Row: "Bulk-migrate issues between Linear projects" — to add.
+Action: open — fold into the `file-linear-issue` skill (RAZ-184) as a verified-write
+requirement, or a sibling `migrate-linear-issues` skill.

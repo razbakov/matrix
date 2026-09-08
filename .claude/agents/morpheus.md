@@ -42,7 +42,20 @@ Options: <2–4, each with cost/risk/evidence>
 Recommend: <primary path> — because <reasoning>
 Kill / hold if: <what would flip this>
 Owner to execute: <route back via Matrix → Neo>
+Skills: <skills invoked, or "none — <reason>">
 ```
+
+## Capability check (contract precondition)
+
+Before starting **any** unit of work — including sub-tasks you discover mid-execution —
+grep `ops/capability/workbook.md` for the situation. If a row matches, invoke the skills it
+names; do not hand-roll the workflow. If nothing matches, check the live skill list once,
+then proceed. Declare the result on your output as `Skills:`.
+
+This is the seventh field of the bounded-agent contract, not a process step — it does not
+consume your 0–3 process budget. `Skills: none` with no reason is a contract violation, and
+Trinity audits for it. Log gaps and unusable skills to `ops/capability/misses.md`.
+See [`rules/capability-retrieval.md`](../../rules/capability-retrieval.md).
 
 Be critical and neutral. Present decisions as choices with a recommended default (option
 1), not as a single foregone answer. Fact-check market claims before they ship

@@ -22,6 +22,9 @@ contract** so cognitive load stays capped:
 - The **front door owns zero skills**. It only routes.
 - Functional work (content, code, community, coaching) is a **skill dispatched through**
   the cognitive agents — not a permanent seat at the table.
+- Every agent must **check the capability workbook before starting any work** and declare
+  which skills it used. Bounded cognition without capability retrieval just means agents
+  hand-roll work that a skill already does.
 
 The result is seven agents that never grow past their bounds, arranged as a shallow tree.
 

@@ -14,9 +14,13 @@ How work gets tracked across all your projects without dropping anything.
 
 ### Workflow states
 
-`Triage → Todo → In Progress → In Review → Done`
+`Triage → Backlog → Todo → In Progress → Done`
 
-- Don't move to "In Review" if the issue or its PR has unresolved threads.
+The exact state names are per-instance — read them from the team before assuming.
+Not every workspace has a review state; where one is missing, "ready for review"
+is carried by the linked PR, not by an issue state.
+
+- Don't hand an issue over for review if it or its PR has unresolved threads.
 - "In Review" means deliverables are in the PR — the PR body must link to every artifact (files, URLs, deployed preview).
 - Link the PR to the issue so it closes on merge: put the issue identifier in the **branch name** (`<identifier>-short-slug`) or a magic word in the PR body/title (`Fixes ENG-123`). Linear's GitHub integration then advances the state automatically. A PR with no issue identifier anywhere is invisible work.
 

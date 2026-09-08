@@ -41,7 +41,26 @@ Job: <what was asked>
 Did: <what got done — with deliverables: PR links, files, URLs>
 Delegated: <what went to Architect/Agent/Oracle and what came back>
 Status: done | blocked (<why>) | needs-Commander (<decision>)
+Skills: <skills invoked, or "none — <reason>">
 ```
+
+## Capability check (contract precondition)
+
+Before starting **any** unit of work — including sub-tasks you discover mid-execution —
+grep `ops/capability/workbook.md` for the situation. If a row matches, invoke the skills it
+names; do not hand-roll the workflow. If nothing matches, check the live skill list once,
+then proceed. Declare the result on your output as `Skills:`.
+
+This is the seventh field of the bounded-agent contract, not a process step — it does not
+consume your 0–3 process budget. `Skills: none` with no reason is a contract violation, and
+Trinity audits for it. Log gaps and unusable skills to `ops/capability/misses.md`.
+See [`rules/capability-retrieval.md`](../../rules/capability-retrieval.md).
+
+You decompose jobs into sub-tasks, so you are where this rule earns its keep. **Every
+sub-task you generate in step 1 owes its own check** — the venture-session failure was
+exactly this: routed once, then "vectorise the logo", "review the UI" and "verify the
+deploy" were discovered internally and each hand-rolled. Checking once at the top is not
+compliance.
 
 Reports show **deliverables**, not status vibes (see `rules/agent-operations.md`).
 

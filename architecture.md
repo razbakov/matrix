@@ -8,9 +8,10 @@ longer a top-tier agent; it is a **skill dispatched through** the cognitive agen
 
 ## The bounded-agent contract
 
-Every agent — with the sole exception of the router's skill count — is defined by
-the same six-part contract. The numbers are the whole point: they cap cognitive load
-so no agent becomes a god-agent and no agent has to relate to everyone.
+Every agent — with the sole exception of the router's faculty count — is defined by
+the same seven-part contract. The first six numbers are the whole point: they cap
+cognitive load so no agent becomes a god-agent and no agent has to relate to everyone.
+The seventh is not a cap but an obligation, and is explained below.
 
 | Field | Bound | Meaning |
 |---|---|---|
@@ -18,12 +19,45 @@ so no agent becomes a god-agent and no agent has to relate to everyone.
 | **Process** | 0–3 steps (max 12) | The steps the agent runs. Target 0–3; 12 is the hard ceiling — cross it and the agent must be split. |
 | **Output format** | 1 | The shape of what the agent returns. One contract out. |
 | **Relations** | 0–3 agents (max 12) | Who it may speak to. `down` = delegate, `up` = question / report. |
-| **Skills** | 0–3 (max 12) | The capabilities it owns. The router owns **zero**. |
-| **Tools per skill** | 0–3 (max 12) | The tools each skill may reach for. |
+| **Skills** | 0–3 (max 12) | The **faculties** it owns. The router owns **zero**. |
+| **Tools per skill** | 0–3 (max 12) | The tools each faculty may reach for. |
+| **Capability check** | 1 (mandatory) | A precondition on accepting input: consult the capability workbook, then declare the result. |
 
 "0–3 (max 12)" means: **aim for 0–3, never exceed 12.** The ceiling is a smell test —
 if a well-designed agent needs more than 12 of anything, the domain is miscarved and
 should be split. It is never a quota to fill.
+
+### Faculties are bounded; skills are not
+
+The **Skills** field above counts **faculties** — abstract capabilities an agent owns
+(`execute`, `verify`, `retrospective`). It has never counted invocable `/<skill-name>`
+workflows, and the two must not be confused: an agent whose faculty is `execute` may
+invoke a hundred different skills over its life and stay perfectly bounded, because the
+bound is on *what it decides*, not on *what it reaches for*. See
+[`rules/capability-retrieval.md`](rules/capability-retrieval.md).
+
+### The seventh field
+
+**Capability check** is the one field that is not a load cap. The other six bound what an
+agent may hold; this one obliges it to *look before it builds*. It was added after a
+verified failure — a full venture session that ran research → strategy → build → deploy
+and invoked **zero** of 100+ available skills, because the framework had a filing system
+for skills and no index and no retrieval obligation.
+
+It is deliberately a **precondition, not a process step**, so it consumes none of any
+agent's 0–3 process budget and applies uniformly rather than being restated seven times in
+seven agent files. Contract terms are structural; instructions buried in one file are
+advisory, and advisory is exactly what failed.
+
+The check fires at **two points, both mandatory**: Matrix's Ownership step (intake) and
+every agent's acceptance of any unit of work, *including sub-tasks discovered
+mid-execution*. Checking once at intake was never the cure — the failed session was routed
+once, then discovered "vectorise the logo," "review the UI," and "verify the deploy"
+internally, long after routing. Each owed its own check.
+
+Every agent's output carries a `Skills:` line declaring the result. `Skills: none` with no
+reason is a contract violation, and **Trinity audits for it** — the mechanical grep is
+what actually enforces this, not the writing of the rule.
 
 ## Topology
 
@@ -80,10 +114,15 @@ It reasons with **GROW + Owner** on every inbound message:
 2. **Reality** — where are we? What do we have? What don't we know?
 3. **Options** — how could we get from reality to goal?
 4. **Way forward** — which path do we try next?
-5. **Ownership** — who is the best leader for this case? Who should answer?
+5. **Ownership** — who is the best leader for this case? Who should answer? **With
+   what?** — grep `ops/capability/workbook.md` and name the covering skills in the handoff.
 
-Step 5 is the routing decision. Matrix hands off to the owning agent and never does
-the work itself. When ownership is unclear, it routes to **Neo** (present execution)
+Step 5 is the routing decision, and it now carries the intake capability check: the owner
+receives not just the job but the skills that already serve it. Naming a skill is not
+acquiring a faculty — Matrix points at the workflow, it never runs it, so the zero-faculty
+router stays a zero-faculty router. Matrix's check does **not** discharge the owner's.
+
+Matrix hands off to the owning agent and never does the work itself. When ownership is unclear, it routes to **Neo** (present execution)
 to file and triage, never guessing a specialist. **One exception to the tree:** a flagged
 human-emergency or burnout signal routes **directly to Oracle**, bypassing Neo — a person
 in distress must not wait behind the execution queue (see Known tensions below).
@@ -101,6 +140,34 @@ Matrix runs GROW+Owner and decomposes:
 5. **Ownership** — CMO leads, others assist.
 
 Matrix schedules, estimates, prioritises, and routes each piece to its owner.
+
+## The capability loop
+
+The workbook that the capability check consults is kept alive by three agents already in
+the tree, using faculties they already have. **No new agent was added, and none was
+needed.** Full spec in [`rules/capability-retrieval.md`](rules/capability-retrieval.md).
+
+```
+      Agent ──(what capability exists — local + world)──┐
+                                                        ▼
+                                                   Architect ──▶ ops/capability/workbook.md
+                                                        ▲                    │
+    Trinity ──(what was missed — audit of Skills: lines)┘                    ▼
+                                              Matrix + every agent consult it
+```
+
+| Role | Faculty used | Accountability | Cadence |
+|---|---|---|---|
+| **Agent** | `data` (new source, not a new faculty) | Reports the real skill inventory and outside-world candidates, as facts with sources | Monthly; out-of-cycle on 3+ misses against one uncovered situation |
+| **Trinity** | `retrospective` | Audits outputs for undeclared/wrong `Skills:` lines; logs to `misses.md` | Daily inside the existing retrospective; workbook health in the weekly review |
+| **Architect** | `architecture` | Owns the workbook: adds rows, fixes unfindable ones, prunes dead ones | Event-triggered, plus monthly reconciliation against Agent's scan |
+
+A **Librarian** and a **Researcher** were proposed as new seats and **rejected**: the
+functions are real but each already has an owner, and — decisively — a new role does not
+fix this failure. Nothing forced consultation of the skill list, and nothing would have
+forced consultation of a Librarian either. Adding structure to compensate for a missing
+constraint yields the same bug wearing a hat. The load-bearing fix is the obligation plus
+the audit, not a new node.
 
 ## Known tensions (watch items)
 

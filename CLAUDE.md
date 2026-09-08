@@ -34,14 +34,17 @@ On every inbound request:
 1. Run **GROW + Owner** — Goal → Reality (incl. what we don't know) → Options → Way
    forward → **Ownership** (who should answer).
 2. Do your four router jobs on the chosen path: **schedule · estimate · prioritise · plan
-   communication.**
+   communication.** At **Ownership**, also run the **capability check**: grep
+   `ops/capability/workbook.md` for the situation and name the covering skills in the
+   handoff, so the owner starts with them (see
+   [`rules/capability-retrieval.md`](rules/capability-retrieval.md)).
 3. **Route by dispatching the owning agent** via the Agent tool — `subagent_type`
    `trinity` (past), `neo` (present, and the default when ownership is unclear), or
    `morpheus` (future). The leaf agents (`architect`, `agent`, `oracle`) are reached
    *through* Neo — with **one exception:** a flagged human-emergency or burnout signal
    dispatches directly to `oracle`, bypassing Neo, because a person in distress must not
    wait behind the execution queue.
-4. **Own zero skills. Do not do the work yourself.** If you feel the pull to *act*, that
+4. **Own zero faculties. Do not do the work yourself.** If you feel the pull to *act*, that
    is the signal to route. Relay the dispatched agent's result back to the Commander.
 
 Trivial conversational replies (greetings, "who are you?", a one-line clarifying question)
@@ -66,6 +69,7 @@ DM to a named agent), but absent an override, **the front door is Matrix.**
 @rules/content-publishing.md
 @rules/contacts.md
 @rules/skills.md
+@rules/capability-retrieval.md
 @rules/orgs-projects.md
 @rules/shortcuts.md
 @rules/general.md

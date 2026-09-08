@@ -42,6 +42,18 @@ Ownership) → routes to the owning agent:
 Matrix never does the work itself. When ownership is unclear, it routes to **Neo** to
 file and triage — never guessing a specialist.
 
+### The capability check (applies to every agent)
+
+Before starting **any** unit of work — including sub-tasks discovered mid-execution — grep
+`ops/capability/workbook.md` for the situation, invoke the skills a matching row names, and
+declare the result on your output as `Skills:`. `Skills: none` with no reason is a contract
+violation; Trinity audits for it. This is the seventh field of the bounded-agent contract,
+not a process step. Full rule: [`capability-retrieval.md`](capability-retrieval.md).
+
+Note the terminology: the contract's **Skills** field counts *faculties* (`execute`,
+`verify`) and is capped at 0–3. Invocable `/<skill-name>` workflows are **not** capped —
+faculties are executed *through* skills.
+
 ### Delegation direction
 
 Relations are directional: **down = delegate**, **up = question / report**. Matrix
@@ -69,6 +81,7 @@ decisions are delegated.
 | Present execution order | Neo | Matrix |
 | Routing & prioritisation | Matrix | Commander |
 | Retrospective conclusions | Trinity | Commander |
+| Capability map (which skill serves which situation) | Architect | Agent (inventory) · Trinity (misses) |
 | Ship / merge / publish | Commander (approval) | owning agent |
 
 ### Org- and project-specific agents

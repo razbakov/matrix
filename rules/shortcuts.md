@@ -12,7 +12,7 @@ These are the universal verbal shortcuts the Commander uses. Personal shortcuts 
 
 - **`save`** — commit all changes, update all relevant docs and maps (CLAUDE.md project registries, now.md, strategy trackers, metrics, etc.) to reflect the current state. This is a checkpoint — make sure nothing is lost or out of sync. After committing, always ask "skills?" — evaluate whether the process just performed should become a reusable skill. If yes, create it; if not, say so briefly and move on.
 
-- **`plan it`** — check if current output/research is saved to a file. If not, save it first. Then create a GitHub issue in the appropriate project repo (agent label + S3 body) and add it to the Control Center board.
+- **`plan it`** — check if current output/research is saved to a file. If not, save it first. Then create a Linear issue on the owning team (agent label + S3 body), tagged with the project it belongs to.
 
 - **`health`** — run a full systems health check: agent bots, Telegram bots, scheduled tasks, MCP servers, auth tokens, dispatch surface. Report as a pass/fail status board.
 

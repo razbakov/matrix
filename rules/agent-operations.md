@@ -8,13 +8,13 @@ How agents run, hand off, and stay accountable.
 - Agent configs stay in `.claude/agents/<name>.md`.
 - Anything an agent learns or decides that future sessions need to know goes into a markdown file in `ops/`, not into an opaque memory blob.
 
-### Every dispatched agent must have a GitHub issue
+### Every dispatched agent must have a Linear issue
 
-- Before launching a subagent for non-trivial work, create a GitHub issue on the Control Center board.
+- Before launching a subagent for non-trivial work, create a Linear issue on the Control Center.
 - The `/inbox` skill creates the issue before launching.
 - Dispatched agents must create a PR as their final step.
 - Agent reports must show deliverables (PR links, file sizes, URLs), not just status messages.
-- Scrum should flag commits-without-PRs as "NEEDS PR" — uncommitted worktree work is invisible risk.
+- Scrum should flag commits-without-PRs as "NEEDS PR" — uncommitted worktree work is invisible risk. A PR carrying no Linear issue identifier is the same problem: work the system cannot see.
 
 ### Agent prefix on every substantive response
 

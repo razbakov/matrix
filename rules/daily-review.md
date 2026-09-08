@@ -33,14 +33,14 @@ The daily review only **links to** inbox files — it doesn't inline them.
 
 The 9:00 morning DM is a **review-ready proposal**, not an auto-delivered plan. Maya proposes the day; the Commander consents.
 
-- Maya assembles candidate calendar blocks and candidate tasks from the system queue (GitHub Issues, parked items from previous days, deadlines from contacts/projects).
+- Maya assembles candidate calendar blocks and candidate tasks from the system queue (Linear, parked items from previous days, deadlines from contacts/projects).
 - Maya filters to the daily cap (per-Commander config in private CLAUDE.md; default suggestion: 5 actionable items, calendar blocks + tasks combined). If the candidate count exceeds the cap, Maya picks by current OKR priority (Layer 1 / Layer 3) and surfaces the rest as "parked, can promote tomorrow."
 - The DM uses review-ready format (per `agent-protocols.md`) with a **default-consent window** (per-Commander config; default suggestion: 30 min). Example shape:
 
   > Today I propose: 3 calendar blocks (X 10–11, Y 14–15, Z 17–18) + 2 tasks (A, B). Anything you don't consent to, I park back in the system queue. Default-consent: 30 min. Reply with edits or `ok`.
 
 - **Until consent (or silence past the window), nothing lands on the Commander's Calendar or Tasks.** Auto-syncing without consent is the failure mode this rule exists to fix.
-- Items the Commander rejects go back to GitHub Issues (system queue) or to the per-agent parked-tasks file (e.g. `ops/agents/maya/parked-tasks.md`). They don't disappear; they just don't enter the personal surface today.
+- Items the Commander rejects go back to Linear (system queue) or to the per-agent parked-tasks file (e.g. `ops/agents/maya/parked-tasks.md`). They don't disappear; they just don't enter the personal surface today.
 
 ### End-of-day closure (21:00 closure ping)
 
@@ -51,7 +51,7 @@ Calendar events and tasks are claims about the future. Without an explicit closu
   > Today's plan: ✓ X happened, ✓ Y happened, ✗ Z skipped. Tasks: ✓ A done, ✗ B undone. Confirm or correct?
 
 - The Commander confirms or corrects. Maya logs the result to that day's `ops/sessions/YYYY-MM-DD-daily-review.md` so closure history is auditable.
-- **Skipped items do NOT auto-roll-forward.** They go back to the system queue (GitHub Issues or parked-tasks file) and re-compete for tomorrow's cap slots via the 9:00 consent gate. No silent backlog growth.
+- **Skipped items do NOT auto-roll-forward.** They go back to the system queue (Linear or parked-tasks file) and re-compete for tomorrow's cap slots via the 9:00 consent gate. No silent backlog growth.
 - This step is what closes the loop on any reliability KR ("zero missed follow-ups", "zero dropped commitments") — without closure tracking, those KRs are vibes, not measurements.
 
 ### File first, message second

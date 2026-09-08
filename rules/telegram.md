@@ -9,7 +9,7 @@ The framework uses Telegram as the primary realtime surface between the Commande
 
 ### Inbox handling
 
-- Split multi-task messages into separate GitHub issues on the Control Center board.
+- Split multi-task messages into separate Linear issues on the Control Center.
 - React **once** to each incoming message with the most relevant GTD emoji (see reactions below).
 - Inbox files should store Telegram message IDs for reliable matching across sessions.
 

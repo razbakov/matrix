@@ -13,7 +13,7 @@ Phrases like "I'll flag this later", "remind me in X weeks", "revisit this", "co
 Every deferred commitment must be landed on an actual surface before the turn ends:
 
 - Google Calendar event (primary)
-- GitHub issue or comment on an existing issue
+- Linear issue, or a comment on an existing one
 - Scheduled task (cron, scheduled trigger)
 - Rule in the appropriate CLAUDE.md
 

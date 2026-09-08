@@ -79,6 +79,9 @@ A deploy claim with no fetched URL behind it is unverified. Report it as
 | Estimate effort / size a piece of work | estimate, how long, story points, size this | `estimation` | Matrix (owns "estimate") | — | 1 |
 | Write a user story / acceptance criteria | user story, acceptance criteria, requirements, ticket | `user-story` | Neo | — | 1 |
 | File a new task into the Control Center | new task, track this, add to the board, file an issue | **No skill covers this** — follow `rules/tasks-control-center.md`: Linear issue with an S3 body (Tension · Driver · Requirement · Response Options) | Neo | — | gap |
+| Capture a Telegram message into the queue | telegram inbox, capture this, split into issues, process the DM | **No skill covers this** — follow `rules/telegram.md` lane 1: split, route (issue → `Triage` / rule → CLAUDE.md / other → `ops/inbox/`), read-back verify | Neo | 2026-09-09 | gap |
+| Act on a Commander reply / approve or park work | ok, ship it, hold, park it, approve, what do these replies do | **No skill** — the verb → Linear transition table in `rules/consent-and-control.md`; read current state first, read back after | Neo | 2026-09-09 | gap |
+| Send the daily digest | digest, daily ping, what needs my decision, what shipped | **No skill** — the three-section Linear query + message shape in `rules/telegram.md`; silent when empty | Matrix (owns "plan communication") | 2026-09-09 | gap |
 | Implement a given GitHub issue | implement issue, this issue URL, work on #N | `github-issue`; pick next → `github-next-issue` | Neo | — | 1 |
 | Plan a sprint | sprint planning, what should we build next, plan the iteration | `sprint-planning`; dispatch it → `run-sprint`; close it → `sprint-release` | Neo | — | — |
 | Dispatch a fire-and-forget agent | inbox, dispatch, spin up an agent | `inbox` | Neo | — | — |
@@ -130,6 +133,7 @@ A deploy claim with no fetched URL behind it is unverified. Report it as
 |---|---|---|---|---|---|
 | Create a new skill | new skill, make a skill, capture this workflow | `skill-creator` (**mandatory review** per `rules/skills.md`) → publish to the skills repo | Architect | — | — |
 | Improve an existing skill | improve skill, fix triggering, optimise this skill | `improve-skill`; standards → `writing-skills` | Architect | — | — |
+| Rewrite or reconcile a framework rule | rule file, framework rule, rules contradict, governance redesign | **No skill covers this** — Architect's `architecture` faculty applied directly. `org-coach` is scoped to *creating an organisation* and does not fit. Check every importer of the rule for contradictions before committing. | Architect | 2026-09-09 | gap |
 | Split a fat skill into children | decompose skill, meta-skill, break this up | `meta-skill` | Architect | — | — |
 
 ---

@@ -4,8 +4,8 @@ Top-tier agents initiate work; the Commander reviews and redirects. Proactivity
 converts a passive reply system into a self-driving circle without sacrificing direction.
 (Throughout this file "manager" means any of the seven Matrix agents.)
 
-This rule sits on top of `agent-protocols.md` (message format + default-consent) and
-`agent-team.md` (roles). Read those first.
+This rule sits on top of `agent-protocols.md` (message format), `consent-and-control.md`
+(how work advances), and `agent-team.md` (roles). Read those first.
 
 ### Two trigger types
 
@@ -33,38 +33,47 @@ healthy cycle.
 
 ### Reply patterns
 
-The Commander steers with short replies. The manager parses these and adjusts the next cycle:
+The Commander steers with short replies. Every verb maps to exactly one Linear
+transition, or explicitly to none — the table lives in
+[`consent-and-control.md`](consent-and-control.md) and is not restated here, because a
+vocabulary written down twice drifts into two vocabularies.
 
-| Reply | Effect |
-|---|---|
-| `ok` / `ship it` / `yes` | Consent now — don't wait for the time-box |
-| `no` / `change X` / `do Y instead` | Revise and resend the same review-ready message |
-| `pause` / `hold` | Skip the next cycle; resume on next Commander signal |
-| `focus: <theme>` | Set the focus signal for upcoming cycles |
+Two effects belong to this file:
 
-Silence past the time-box → consent (per `agent-protocols.md`).
+- **`hold` / `pause`** also suppresses the issue from the digest until its hold date.
+- **`focus: <theme>`** writes no Linear state at all. It lands in
+  `ops/agents/matrix/focus.md`, and it is the redirect channel: every manager reads the
+  most recent focus signal at the start of each cycle and re-sorts accordingly. A manager
+  whose domain doesn't match the current focus runs a short cycle, or skips it, rather
+  than forcing unrelated asks through.
 
-The **focus signal** is the redirect channel. All managers read the most recent focus
-signal at the start of each cycle and re-sort their domain accordingly. A manager whose
-domain doesn't match the current focus runs a short cycle (or skips it) instead of forcing
-unrelated asks through.
+Silence advances nothing. An unanswered ask is not lost — it is a durable Linear issue and
+it is re-offered in the next digest.
 
 ### Digest discipline
 
 Seven agents running daily cycles can flood the Commander. **Matrix** (the router) owns
-"plan communication," so it consolidates: instead of seven review-ready messages, the
-Commander gets **one daily digest** where each agent has a short slot (or a "nothing to
-surface" line).
+"plan communication," so it consolidates into **one daily digest**.
 
-Digest shape:
+**The digest is a query, not an assembly.** Seven agents each submitting a slot was
+necessary when state lived in agents' heads; now that it lives in Linear it is one query
+answering three questions — what needs my decision, what is blocked on me, what shipped.
+The query, the message shape, and the section bounds are specified in
+[`telegram.md`](telegram.md).
 
-- One ping per day to the Commander
-- Each manager's slot ≤ 5 lines, in review-ready format (Why · What · Media · Asking)
-- Each open ask carries its own time-box; replying to one item ages others normally
-- Out-of-cycle event triggers can still send their own message (they're urgent by definition)
+Consequences for this file:
 
-The digest cadence is instance-level config; the consolidating agent is **Matrix** (the
-router). The protocol is: **one daily digest > seven daily pings.**
+- No manager "submits to the digest." Managers write to Linear; the digest reads Linear.
+  A manager with nothing to write logs "nothing to surface" in its state and stays silent.
+- If the query returns nothing in all three sections, **no digest is sent.** A daily
+  silent cycle is a healthy cycle.
+- Out-of-cycle sends are bounded to a closed list of three event categories with a daily
+  ceiling — see "Anti-noise" in `telegram.md`. In particular the scheduled dispatcher, the
+  largest event source in the system, sends nothing at all; its results appear in the next
+  digest.
+
+Digest cadence is instance-level config; the consolidating agent is **Matrix**. The
+protocol is: **one daily query > seven daily pings.**
 
 ### Cadence config (instance-level)
 

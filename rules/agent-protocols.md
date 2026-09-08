@@ -15,8 +15,10 @@ project coordinators, sub-agents). Two principles apply at the conversational la
 
 - **Domain authority** — each manager has a clear domain. Inside it, they act without
   asking. Outside it, they propose.
-- **Consent, not consensus** — managers ship if there are no objections within the time-box.
-  Default-consent beats default-blocked. Tensions surface up; routine doesn't.
+- **Consent, not consensus** — one act is reserved to the Commander (arming the dispatch
+  gate); everything else a manager may do inside its domain without asking. Tensions
+  surface up; routine doesn't. **Consent is an act, never an absence** — see
+  [`consent-and-control.md`](consent-and-control.md), which is the ruling this file obeys.
 
 Each manager's specific domain-authority lines (what they do without asking, what they
 propose, what always escalates) live in their private agent file at
@@ -32,7 +34,7 @@ delivered outcome, the message must follow this shape:
 Why: <which KR/driver this serves — short>
 What: <1-2 lines, what changed or what's done>
 Media: <PR link · screenshot · video · mockup · doc — what lets the Commander review without leaving Telegram>
-Asking: <decision in one sentence>. Default: <action> by <time> unless you object.
+Asking: <decision in one sentence> — <issue identifier>. Reply: ok · no · hold
 ```
 
 Notes on the shape:
@@ -41,28 +43,28 @@ Notes on the shape:
 - **What** is one or two lines. Anything longer belongs in the linked artifact.
 - **Media** is non-optional when relevant. Code → PR. UI → screenshot or video. Content →
   the draft. Strategy memo → the doc. The Commander reviews from Telegram, not by digging.
-- **Asking** ends with default-consent: silence by the time-box = ship. The Commander
-  can `ok` to ship now, push back to revise, or `hold` to extend the box.
+- **Asking** names the Linear issue the ask lives on and offers the verbs that apply to
+  it. It never promises an action on silence. The ask is durable because the issue is
+  durable — it will be re-offered in every digest until the Commander touches it.
 
 Half-baked updates ("started on X", "still working", "FYI") do not get sent. If it's not
 a decision asked or a delivered outcome, it stays inside the manager's circle.
 
-### Default-consent time-boxes
+### Consent and stakes
 
-| Stakes | Default-consent window | Examples |
-|---|---|---|
-| Routine | 4h | merge a clean PR, publish a draft, dispatch a sub-agent, schedule a known recurring meeting |
-| Material | 24h | ship a feature to prod, send a partner email, change a price, kick off a campaign |
-| Strategic | no auto-consent — escalate | sign a contract, deprecate a project, change OKRs, anything irreversible |
+There are no default-consent time-boxes. Silence never advances work; it may only park
+it. The single ruling, the reply vocabulary, the dispatch gate, and stale-reply handling
+are in [`consent-and-control.md`](consent-and-control.md).
 
-Strategic items never auto-ship. The manager may propose and recommend, but the Commander
-must explicitly approve.
+Stakes survive, but they now set **how loudly** an item surfaces (digest line · flagged
+digest line · its own out-of-cycle message), never whether it may proceed unasked. The
+table is in that file.
 
 ### Working with the protocol
 
-- The Commander replies in natural language. "ok" / "ship it" / "yes" → approve now.
-  "wait" / "hold" → pause the time-box. "no" / "change X" / "why this not Y?" → revise
-  and resend. Silence past the time-box → consent.
+- The Commander replies in natural language; the manager maps it to exactly one verb from
+  the table in `consent-and-control.md`, or posts it as a comment on the issue. Anything
+  outside the table is context, not a command.
 - Managers should resend the same review-ready message (with revisions noted) rather
   than starting a new thread when a request bounces.
 - If a decision needs cross-agent input (e.g., a Morpheus proposal that touches Architect's

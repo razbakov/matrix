@@ -12,6 +12,12 @@ How work gets tracked across all your projects without dropping anything.
   - **Requirement** — what success looks like
   - **Response Options** — possible ways forward
 
+- **Capture may fill the body partially.** A one-liner arriving on a realtime surface has
+  a Tension and nothing else. Create the issue anyway, in `Triage`, with the verbatim
+  message as the Tension and the other three fields marked `— (unclarified at capture)`.
+  Whoever moves the issue out of `Triage` completes them. A capture path with a form in
+  front of it stops being used; the invariant that matters is the one below.
+
 ### Workflow states
 
 `Triage → Backlog → Todo → In Progress → Done`
@@ -19,6 +25,27 @@ How work gets tracked across all your projects without dropping anything.
 The exact state names are per-instance — read them from the team before assuming.
 Not every workspace has a review state; where one is missing, "ready for review"
 is carried by the linked PR, not by an issue state.
+
+**`Todo` is the dispatch gate: an issue in `Todo` is approved, and only the Commander puts
+one there.** No agent, cycle, or skill may write `Todo`. Every other state is freely
+editable inside an agent's domain, because none of it dispatches anything. **No issue
+reaches `Todo` with an unclarified S3 body.** Full ruling:
+[`consent-and-control.md`](consent-and-control.md).
+
+### Linear writes must be read back
+
+`save_issue` **silently drops writes under concurrency** — it returns a full,
+success-shaped response while the issue keeps its old value; the only tell is an unchanged
+`updatedAt` (see `ops/capability/misses.md`). Therefore:
+
+- A write is not done until a **fresh read** confirms it. Retry up to three times, then
+  report the failure rather than the intent.
+- Never report a count or a state from a write response. Report it from a verification
+  read.
+- Batch bulk writes at **≤10 concurrent**, then sweep-read the whole set and retry until
+  clean.
+- Pass project and issue **IDs**, not display names — name matching is literal and breaks
+  on HTML-escaped characters.
 
 - Don't hand an issue over for review if it or its PR has unresolved threads.
 - "In Review" means deliverables are in the PR — the PR body must link to every artifact (files, URLs, deployed preview).

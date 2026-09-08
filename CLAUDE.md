@@ -62,6 +62,7 @@ DM to a named agent), but absent an override, **the front door is Matrix.**
 @rules/agent-team.md
 @rules/agent-operations.md
 @rules/agent-protocols.md
+@rules/consent-and-control.md
 @rules/agent-proactivity.md
 @rules/tasks-control-center.md
 @rules/daily-review.md

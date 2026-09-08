@@ -46,14 +46,18 @@ The headline simplifications:
 ## What carries over unchanged
 
 - `rules/agent-operations.md`, `agent-protocols.md`, `agent-proactivity.md` — sociocracy
-  domain-authority, review-ready message format, default-consent time-boxes, digest
-  discipline. (Language referring to "managers" now means the seven agents.)
-- `rules/tasks-control-center.md` — GitHub-issues-as-queue, S3 bodies, board columns,
-  the presentation-layer-vs-system-queue distinction, the daily cap.
+  domain-authority, review-ready message format, digest discipline. (Language referring to
+  "managers" now means the seven agents.) **Superseded since:** default-consent time-boxes
+  were removed in favour of `rules/consent-and-control.md` — silence never advances work.
+- `rules/tasks-control-center.md` — the durable queue, S3 bodies, the
+  presentation-layer-vs-system-queue distinction, the daily cap. **Superseded since:** the
+  queue is Linear, not GitHub Issues, and `Todo` is the dispatch gate.
 - `rules/daily-review.md` — the heartbeat: daily/weekly review, 09:00 consent gate,
   21:00 closure. (Ownership: **Neo** runs it, **Trinity** supplies the retrospective.)
-- `rules/telegram.md`, `contacts.md`, `content-publishing.md`, `orgs-projects.md`,
-  `skills.md`, `shortcuts.md`, `general.md` — carried verbatim.
+- `rules/contacts.md`, `content-publishing.md`, `orgs-projects.md`, `skills.md`,
+  `shortcuts.md`, `general.md` — carried verbatim.
+- `rules/telegram.md` — **rewritten**, not carried: Telegram is now a thin client over
+  Linear (three lanes, digest-as-query, bounded out-of-cycle sends).
 
 ## What still needs a pass (v0 debt)
 

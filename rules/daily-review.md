@@ -35,11 +35,11 @@ The 9:00 morning DM is a **review-ready proposal**, not an auto-delivered plan. 
 
 - Maya assembles candidate calendar blocks and candidate tasks from the system queue (Linear, parked items from previous days, deadlines from contacts/projects).
 - Maya filters to the daily cap (per-Commander config in private CLAUDE.md; default suggestion: 5 actionable items, calendar blocks + tasks combined). If the candidate count exceeds the cap, Maya picks by current OKR priority (Layer 1 / Layer 3) and surfaces the rest as "parked, can promote tomorrow."
-- The DM uses review-ready format (per `agent-protocols.md`) with a **default-consent window** (per-Commander config; default suggestion: 30 min). Example shape:
+- The DM uses review-ready format (per `agent-protocols.md`). Example shape:
 
-  > Today I propose: 3 calendar blocks (X 10–11, Y 14–15, Z 17–18) + 2 tasks (A, B). Anything you don't consent to, I park back in the system queue. Default-consent: 30 min. Reply with edits or `ok`.
+  > Today I propose: 3 calendar blocks (X 10–11, Y 14–15, Z 17–18) + 2 tasks (A, B). Reply `ok` to take the day, or name what to drop. Nothing lands until you do.
 
-- **Until consent (or silence past the window), nothing lands on the Commander's Calendar or Tasks.** Auto-syncing without consent is the failure mode this rule exists to fix.
+- **Nothing lands on the Commander's Calendar or Tasks until the Commander says so.** Silence is not consent — an unanswered proposal simply means the day was not consented to, the items stay in the system queue, and they re-compete tomorrow (see [`consent-and-control.md`](consent-and-control.md)). Auto-syncing on a timer is the failure mode this rule exists to fix, and a 30-minute timer is still a timer.
 - Items the Commander rejects go back to Linear (system queue) or to the per-agent parked-tasks file (e.g. `ops/agents/maya/parked-tasks.md`). They don't disappear; they just don't enter the personal surface today.
 
 ### End-of-day closure (21:00 closure ping)

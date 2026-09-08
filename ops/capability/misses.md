@@ -103,3 +103,27 @@ resolve. Pass project/issue **IDs**, not display names.
 Row: "Bulk-migrate issues between Linear projects" — to add.
 Action: open — fold into the `file-linear-issue` skill (RAZ-184) as a verified-write
 requirement, or a sibling `migrate-linear-issues` skill.
+
+### 2026-09-09 · gap · rewriting and reconciling framework rules
+Agent: Architect  Work: Telegram/Linear reconciliation — rewrote `rules/telegram.md`,
+created `rules/consent-and-control.md`, amended four importers
+Detail: Grepped the workbook for telegram, notif, digest, realtime, consent, dispatch,
+rule. The only near-match, "Design org governance / roles / domains" → `org-coach`, is
+scoped by `rules/orgs-projects.md` to *creating an organisation* and does not cover
+editing an existing framework's rule set. Checked the live skill list: `doc-coauthoring`
+and `writing-skills` are about documents and skills respectively, not governance rules.
+This is Architect's `architecture` faculty applied directly, and it plausibly needs no
+skill — but it needed a row saying so, since the next agent will spend the same search.
+Row: "Rewrite or reconcile a framework rule" — added under Meta, marked `gap`.
+Action: fixed — row added. Not a skill candidate yet; revisit if the search repeats.
+
+### 2026-09-09 · unfindable · Telegram capture had no workbook row
+Agent: Architect  Work: same
+Detail: `rules/telegram.md` mandated "split multi-task messages into separate Linear
+issues" and the workbook had no row for it, so an agent doing Telegram capture would find
+only "File a new task into the Control Center" — which covers the issue body but not the
+split, the routing of non-actionable items, or the state to land in. Three of the five
+gaps in this redesign (capture, reply verbs, digest) were surfaces with rules but no
+workbook rows.
+Row: three rows added under Work management.
+Action: fixed — rows added; the rules they point at were written in the same commit.

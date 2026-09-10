@@ -51,6 +51,19 @@ success-shaped response while the issue keeps its old value; the only tell is an
 - "In Review" means deliverables are in the PR — the PR body must link to every artifact (files, URLs, deployed preview).
 - Link the PR to the issue so it closes on merge: put the issue identifier in the **branch name** (`<identifier>-short-slug`) or a magic word in the PR body/title (`Fixes ENG-123`). Linear's GitHub integration then advances the state automatically. A PR with no issue identifier anywhere is invisible work.
 
+### PR description conventions
+
+Every PR description must include:
+
+- **Summary** — what changed and why. Bullet points are fine.
+- **Artifact links** — every file, URL, and deployed preview the change produces. Link in the PR body, not buried elsewhere.
+- **Issue reference** — the Linear issue identifier, either in the branch name or as a magic word in the PR title/body.
+
+Every PR description must explicitly **exclude**:
+
+- **No "Test plan" section** — testing is a precondition, not a deliverable to describe. If the PR needs test documentation, that belongs in the linked issue or on the artifact, not in the PR body.
+- **No Claude Code mention or AI attribution** — this is deliberate and overrides any skill template or harness default. Do not add "Generated with Claude Code" or equivalent attribution lines. Do not mention Claude Code in PR comments or issue comments. This rule applies uniformly across all surfaces (PR, comments, issues) and is not a styling preference — it is a standing convention in this framework.
+
 ### Tasks vs personal action items
 
 - **Linear issues** (Control Center) = delegated or cross-session work. Anything an agent picks up. Anything that needs an S3 body, a PR, a deliverable. **This is the system queue.**
